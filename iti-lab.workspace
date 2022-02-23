@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_workspace_file>
+	<Workspace title="Workspace">
+		<Project filename="20220211_function_separation/20220211_function_separation.cbp" />
+		<Project filename="20220217_filter_input/20220217_filter_input.cbp" />
+		<Project filename="20220221_scalar_product/20220221_scalar_product.cbp" />
+		<Project filename="20220221_average_from_input/20220221_average_from_input.cbp" />
+	</Workspace>
+</CodeBlocks_workspace_file>
