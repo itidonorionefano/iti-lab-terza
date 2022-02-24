@@ -5,5 +5,6 @@
 		<Project filename="20220217_filter_input/20220217_filter_input.cbp" />
 		<Project filename="20220221_scalar_product/20220221_scalar_product.cbp" />
 		<Project filename="20220221_average_from_input/20220221_average_from_input.cbp" />
+		<Project filename="20220224_roll_the_number/20220224_roll_the_number.cbp" />
 	</Workspace>
 </CodeBlocks_workspace_file>
