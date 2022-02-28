@@ -6,5 +6,8 @@
 		<Project filename="20220221_scalar_product/20220221_scalar_product.cbp" />
 		<Project filename="20220221_average_from_input/20220221_average_from_input.cbp" />
 		<Project filename="20220224_roll_the_number/20220224_roll_the_number.cbp" />
+		<Project filename="20220224_min_max_avg/20220224_min_max_avg.cbp" />
+		<Project filename="20220225_name_extraction/20220225_name_extraction.cbp" />
+		<Project filename="20220224_find_value/20220224_find_value.cbp" />
 	</Workspace>
 </CodeBlocks_workspace_file>
