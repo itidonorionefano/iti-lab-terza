@@ -1,6 +1,6 @@
 #include <iostream>
 #include "menu_handler.h"
-#include "input_manager.h"
+#include "data_manager.h"
 
 using namespace std;
 
@@ -9,9 +9,9 @@ using namespace std;
 // modificare gli elementi
 const int ARRAY_SIZE = 100;
 
-int getPosition(bool checkTable[]) {
+int getPosition(dataSet checkTable[]) {
     for (int i = 0; i < ARRAY_SIZE; i++) {
-        if (!checkTable[i]) {
+        if (!checkTable[i].check) {
             return i;
         }
     }
@@ -19,20 +19,17 @@ int getPosition(bool checkTable[]) {
 
 int main()
 {
-    string arrayName[ARRAY_SIZE] = {};
-    string arraySurname[ARRAY_SIZE] = {};
-    int arrayDay[ARRAY_SIZE] = {};
-    int arrayMonth[ARRAY_SIZE] = {};
-    int arrayYear[ARRAY_SIZE] = {};
-    bool checkTable[ARRAY_SIZE] = {};
+    dataSet users[ARRAY_SIZE] = {};
+
+    users[0] = {{"Bailetti", "Tommaso", {2004, 12, 2}}, 1};
+    users[1] = {{"Artibani", "Giovanni", {2005, 04, 25}}, 1};
 
     clearScreen();
     bool loop = true;
     while(loop) {
-        int selection = 0;
-        int position = getPosition(checkTable);
-        printMenu(checkTable, ARRAY_SIZE);
-        selection = selectMenu();
+        int position = getPosition(users);
+        printMenu(users, ARRAY_SIZE);
+        int selection = selectMenu();
         switch (selection) {
         default:
             loop = false;
@@ -40,16 +37,11 @@ int main()
         case 1:
             if (position <= ARRAY_SIZE) {
                 cout << "Inserisci il cognome: ";
-                cin >> arraySurname[position];
+                cin >> users[position].utente.surname;
                 cout << "Inserisci il nome: ";
-                cin >> arrayName[position];
-                cout << "Inserisci il giorno di nascita: ";
-                arrayDay[position] = getDay();
-                cout << "Inserisci il mese di nascita: ";
-                arrayMonth[position] = getMonth();
-                cout << "Inserisci l'anno di nascita: ";
-                arrayYear[position] = getYear();
-                checkTable[position] = true;
+                cin >> users[position].utente.name;
+                insertDate(users[position].utente.birthDay);
+                users[position].check = true;
             }
             break;
         case 2:
@@ -58,27 +50,26 @@ int main()
         case 3:
             cout << "ID\t\tCognome\t\tNome\t\tData di Nascita" << endl;
             for (int i = 0; i < ARRAY_SIZE; i++) {
-                if (checkTable[i]) {
+                if (users[i].check) {
                     cout << i + 1 << "\t\t";
-                    cout << arraySurname[i] << string(16 - arraySurname[i].size(), ' ');
-                    cout << arrayName[i] << string(16 - arrayName[i].size(), ' ');
-                    cout << arrayDay[i] << "/" << arrayMonth[i] << "/" << arrayYear[i] << endl;
+                    cout << users[i].utente.surname << string(16 - users[i].utente.surname.size(), ' ');
+                    cout << users[i].utente.name << string(16 - users[i].utente.name.size(), ' ');
                 }
             }
             cout << "Inserisci l'utente da eliminare: ";
             int toDelete = 0;
             cin >> toDelete;
-            while (toDelete < 1 || toDelete > ARRAY_SIZE + 1 || !checkTable[toDelete]) {
+            while (toDelete < 1 || toDelete > ARRAY_SIZE + 1 || !users[toDelete].check) {
                 cout << "Reinserisci l'elemento da cancellare: ";
                 cin >> toDelete;
             }
             toDelete--;
-            arrayDay[toDelete] = 0;
-            arrayMonth[toDelete] = 0;
-            arrayYear[toDelete] = 0;
-            arraySurname[toDelete] = "";
-            arrayName[toDelete] = "";
-            checkTable[toDelete] = false;
+            users[toDelete].utente.birthDay.year = 0;
+            users[toDelete].utente.birthDay.month = 0;
+            users[toDelete].utente.birthDay.day = 0;
+            users[toDelete].utente.surname = "";
+            users[toDelete].utente.name = "";
+            users[toDelete].check = false;
             break;
         }
         clearScreen();

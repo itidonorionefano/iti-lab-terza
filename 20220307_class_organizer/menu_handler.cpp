@@ -1,15 +1,16 @@
 #include <iostream>
 #include "menu_handler.h"
+#include "data_manager.h"
 
 using namespace std;
 
 const int MIN_MENU = 1;
 const int MAX_MENU = 3;
 
-void printMenu(bool checkTable[], int of) {
+void printMenu(dataSet checkTable[], int of) {
     int counter = 0;
     for (int i = 0; i < of; i++) {
-        if (checkTable[i]) {
+        if (checkTable[i].check) {
             counter++;
         }
     }
