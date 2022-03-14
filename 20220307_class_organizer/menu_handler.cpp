@@ -21,13 +21,14 @@ void printMenu(bool checkTable[], int of) {
     cout << "1. Inserisci alunno" << endl;
     cout << "2. Modifica alunno" << endl;
     cout << "3. Cancella alunno" << endl;
+    cout << "4. Esci dal programma" << endl;
 }
 
 int selectMenu() {
     cout << "Seleziona la voce: ";
     int selection = 0;
     cin >> selection;
-    while (selection < 1 || selection > 3) {
+    while (selection < 1 || selection > 4) {
         cout << "Selezione non valida, si prega di riprovare: ";
         cin >> selection;
     }

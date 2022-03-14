@@ -11,7 +11,7 @@ const int ARRAY_SIZE = 100;
 
 int getPosition(bool checkTable[]) {
     for (int i = 0; i < ARRAY_SIZE; i++) {
-        if (checkTable[i] == false) {
+        if (!checkTable[i]) {
             return i;
         }
     }
@@ -27,12 +27,16 @@ int main()
     bool checkTable[ARRAY_SIZE] = {};
 
     clearScreen();
-    while(true) {
+    bool loop = true;
+    while(loop) {
         int selection = 0;
         int position = getPosition(checkTable);
         printMenu(checkTable, ARRAY_SIZE);
         selection = selectMenu();
         switch (selection) {
+        default:
+            loop = false;
+            break;
         case 1:
             if (position <= ARRAY_SIZE) {
                 cout << "Inserisci il cognome: ";
@@ -54,7 +58,7 @@ int main()
         case 3:
             cout << "ID\t\tCognome\t\tNome\t\tData di Nascita" << endl;
             for (int i = 0; i < ARRAY_SIZE; i++) {
-                if (checkTable[i] == true) {
+                if (checkTable[i]) {
                     cout << i + 1 << "\t\t";
                     cout << arraySurname[i] << string(16 - arraySurname[i].size(), ' ');
                     cout << arrayName[i] << string(16 - arrayName[i].size(), ' ');
@@ -64,7 +68,7 @@ int main()
             cout << "Inserisci l'utente da eliminare: ";
             int toDelete = 0;
             cin >> toDelete;
-            while (toDelete < 1 || toDelete > ARRAY_SIZE + 1 || checkTable[toDelete] == false) {
+            while (toDelete < 1 || toDelete > ARRAY_SIZE + 1 || !checkTable[toDelete]) {
                 cout << "Reinserisci l'elemento da cancellare: ";
                 cin >> toDelete;
             }
@@ -74,7 +78,7 @@ int main()
             arrayYear[toDelete] = 0;
             arraySurname[toDelete] = "";
             arrayName[toDelete] = "";
-            checkTable[toDelete] = 0;
+            checkTable[toDelete] = false;
             break;
         }
         clearScreen();
