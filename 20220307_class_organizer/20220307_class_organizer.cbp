@@ -32,8 +32,8 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
-		<Unit filename="input_manager.cpp" />
-		<Unit filename="input_manager.h" />
+		<Unit filename="data_manager.cpp" />
+		<Unit filename="data_manager.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="menu_handler.cpp" />
 		<Unit filename="menu_handler.h" />
