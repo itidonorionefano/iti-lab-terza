@@ -11,5 +11,6 @@
 		<Project filename="20220224_find_value/20220224_find_value.cbp" />
 		<Project filename="20220228_char_arrays/20220228_char_arrays.cbp" />
 		<Project filename="20220307_class_organizer/20220307_class_organizer.cbp" />
+		<Project filename="20220318_slot_booking/20220318_slot_booking.cbp" />
 	</Workspace>
 </CodeBlocks_workspace_file>
