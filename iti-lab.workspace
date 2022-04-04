@@ -12,5 +12,8 @@
 		<Project filename="20220228_char_arrays/20220228_char_arrays.cbp" />
 		<Project filename="20220307_class_organizer/20220307_class_organizer.cbp" />
 		<Project filename="20220318_slot_booking/20220318_slot_booking.cbp" />
+		<Project filename="20220325_sorting/20220325_sorting.cbp" />
+		<Project filename="20220328_exchange_sort/20220328_exchange_sort.cbp" />
+		<Project filename="20220401_recursion/20220401_recursion.cbp" />
 	</Workspace>
 </CodeBlocks_workspace_file>
