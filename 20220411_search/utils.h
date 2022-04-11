@@ -1,13 +1,15 @@
+#include <string>
+
 #ifndef UTILS_H_INCLUDED
 #define UTILS_H_INCLUDED
 
 /**
- * Stampa un array a video
+ * Dall'array passato per parametro, genera una stringa.
  *
- * @param data l'array da stampare
+ * @param data l'array da "stringare"
  * @param dim la dimensione dell'array
  */
-void printArray(int data[], int dim);
+std::string arrayToString(int data[], int dim);
 
 /**
  * Non è necessario un commento.

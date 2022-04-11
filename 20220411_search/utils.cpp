@@ -1,12 +1,11 @@
 #include <iostream>
 
-void printArray(int data[], int dim) {
-    for (int i = 0; i < dim; i++) {
-        std::cout << data[i];
-        if (i < dim - 1) {
-            std::cout << ", ";
-        }
+std::string arrayToString(int data[], int dim) {
+    std::string text = std::to_string(data[0]);
+    for (int i = 1; i < dim; i++) {
+        text = text + ", " + std::to_string(data[i]);
     }
+    return text;
 }
 
 void scambia(int &a, int &b) {

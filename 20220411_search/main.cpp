@@ -20,20 +20,14 @@ int main()
     }
 
     // incomincio stampando tutti i valori, così posso rendermi conto di che elementi ordino
-    cout << "Ordino data: ";
-    printArray(data, DATA_SIZE);
-    cout << endl;
+    cout << "Ordino data: " << arrayToString(data, DATA_SIZE) << endl;
     // effettuo l'ordinamento con l'exchangesort
-    cout << "Ordino con exchangeSort: ";
     int exchangeSortCost = exchangeSort(dataExchange, DATA_SIZE);
-    printArray(dataExchange, DATA_SIZE);
-    cout << endl;
+    cout << "Ordino con exchangeSort: " << arrayToString(dataExchange, DATA_SIZE) << endl;
     cout << "L'algoritmo è costato: " << exchangeSortCost << endl;
     // effettuo l'ordinamento con il bubblesort
-    cout << "Ordino con bubbleSort: ";
     int bubbleSortCost = bubbleSort(dataBubbleSort, DATA_SIZE);
-    printArray(dataBubbleSort, DATA_SIZE);
-    cout << endl;
+    cout << "Ordino con bubbleSort: " << arrayToString(dataBubbleSort, DATA_SIZE) << endl;
     cout << "L'algoritmo è costato: " << bubbleSortCost << endl;
     // TODO: implementare un algoritmo di ricerca.
 
