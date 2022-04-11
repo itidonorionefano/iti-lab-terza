@@ -16,5 +16,6 @@
 		<Project filename="20220328_exchange_sort/20220328_exchange_sort.cbp" />
 		<Project filename="20220401_recursion/20220401_recursion.cbp" />
 		<Project filename="20220404_bubble_sort/20220404_bubble_sort.cbp" />
+		<Project filename="20220411_search/20220411_search.cbp" />
 	</Workspace>
 </CodeBlocks_workspace_file>
