@@ -4,6 +4,34 @@
 
 using namespace std;
 
+int trovaInArray(int data[], int dim, int toFind, int &opCounter) {
+    int i = dim / 2;
+    if (data[i] > toFind) {
+        for (int j = i; j > 0; j--) {
+            opCounter++;
+            if (data[j] < toFind) {
+                return -1;
+            }
+            opCounter++;
+            if (data[j] == toFind) {
+                return j;
+            }
+        }
+    } else {
+        for (int j = i; j < dim; j++) {
+            opCounter++;
+            if (data[j] > toFind) {
+                return -1;
+            }
+            opCounter++;
+            if (data[j] == toFind) {
+                return j;
+            }
+        }
+    }
+    return -1;
+}
+
 int main()
 {
     // creo diversi array che partono da data, così da avere più casi disponibili
@@ -18,6 +46,10 @@ int main()
     for (int i = 0; i < DATA_SIZE; i++) {
         dataBubbleSort[i] = data[i];
     }
+    int dataQuickSort[DATA_SIZE];
+    for (int i = 0; i < DATA_SIZE; i++) {
+        dataQuickSort[i] = data[i];
+    }
 
     // incomincio stampando tutti i valori, così posso rendermi conto di che elementi ordino
     cout << "Ordino data: " << arrayToString(data, DATA_SIZE) << endl;
@@ -29,7 +61,16 @@ int main()
     int bubbleSortCost = bubbleSort(dataBubbleSort, DATA_SIZE);
     cout << "Ordino con bubbleSort: " << arrayToString(dataBubbleSort, DATA_SIZE) << endl;
     cout << "L'algoritmo è costato: " << bubbleSortCost << endl;
+    int quickSortCost = 0;
+    quickSort(quickSortCost, dataQuickSort, 0, DATA_SIZE - 1);
+    cout << "Ordino con quickSort: " << arrayToString(dataQuickSort, DATA_SIZE) << endl;
+    cout << "L'algoritmo è costato: " << quickSortCost << endl;
+
     // TODO: implementare un algoritmo di ricerca.
+    cout << "Cerco il valore -30: ";
+    int counter = 0;
+    cout << trovaInArray(dataBubbleSort, DATA_SIZE, -30, counter) << endl;
+    cout << "Costo operazione: " << counter << endl;
 
     return 0;
 }

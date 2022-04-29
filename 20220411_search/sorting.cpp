@@ -43,3 +43,28 @@ int bubbleSort(int data[], int dim) {
 
     return opCounter;
 }
+
+int partitionQuickSort(int &opCounter, int data[], int extremeInferior, int extremeSuperior) {
+    int greaterIndex = extremeInferior;
+    int pivotValue = data[extremeSuperior];
+    for(int i = extremeInferior; i < extremeSuperior; i++) {
+        compareOperation(opCounter);
+        if (data[i] <= pivotValue) {
+            swapOperation(opCounter);
+            scambia(data[i], data[greaterIndex]);
+            greaterIndex++;
+        }
+    }
+    swapOperation(opCounter);
+    scambia(data[greaterIndex], data[extremeSuperior]);
+    return greaterIndex;
+}
+
+void quickSort(int &opCounter, int data[], int extremeInferior, int extremeSuperior) {
+    if (extremeInferior < extremeSuperior) {
+        int pivotIndex = partitionQuickSort(opCounter, data, extremeInferior, extremeSuperior);
+
+        quickSort(opCounter, data, extremeInferior, pivotIndex - 1);
+        quickSort(opCounter, data, pivotIndex + 1, extremeSuperior);
+    }
+}
